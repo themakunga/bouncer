@@ -1,11 +1,13 @@
-FROM debian:trixie-slim 
+FROM debian:trixie-slim
 
-WORKDIR /app 
+# set work directory
+WORKDIR /app
 
+# set time
+RUN ln -fs /usr/share/zoneinfo/Europe/Madrid /etc/localtime
+RUN dpkg-reconfigure -f noninteractive tzdata
 
-RUN ln -s /usr/share/zoneinfo/America/Santiago /etc/localtime 
-RUN dpkg-reconfigure -f noninteractive tzdata 
-
+# install software
 RUN apt update && apt install -y \
   build-essential \
   ca-certificates \
