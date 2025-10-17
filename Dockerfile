@@ -4,7 +4,7 @@ FROM debian:trixie-slim
 WORKDIR /app
 
 # set time
-RUN ln -fs /usr/share/zoneinfo/Europe/Madrid /etc/localtime
+RUN ln -fs /usr/share/zoneinfo/America/Santiago /etc/localtime
 RUN dpkg-reconfigure -f noninteractive tzdata
 
 # install software
