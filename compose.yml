@@ -9,5 +9,4 @@ services:
     ports:
       - 6697:6697
     volumes:
-      - ./soju/:/var/lib/soju/
       - ./config.ini:/etc/soju/config:ro
