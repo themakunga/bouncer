@@ -1,0 +1,13 @@
+services:
+  soju:
+    restart: ${RESTART_POLICY:-no}
+    container_name: soju
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    ports:
+      - 6697:6697
+    volumes:
+      - ./soju/:/var/lib/soju/
+      - ./config.ini:/etc/soju/config:ro
