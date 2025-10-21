@@ -2,7 +2,7 @@ services:
   znc:
     restart: ${RESTART_POLICY:-no}
     container_name: znc
-    image: znc:slim
+    image: znc
     environment:
       TZ: America/Santiago
       PUID: 1000
