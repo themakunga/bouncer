@@ -1,13 +1,14 @@
 services:
-  soju:
+  znc:
     restart: ${RESTART_POLICY:-no}
-    container_name: soju
-    build:
-      context: .
-      dockerfile: Dockerfile
-    env_file: .env
+    container_name: znc
+    image: znc:slim
+    environment:
+      TZ: America/Santiago
+      PUID: 1000
+      PGID: 1000
     ports:
-      - 6667:6667
+      - 6501:6501/tcp
+      - 6502:6502/tcp
     volumes:
-      - ./soju/:/var/lib/soju/
-      - ./config.ini:/etc/soju/config.ini:ro
+      - ./znc:/znc-data:rw
